@@ -46,10 +46,10 @@ def extract_audio_features(file):
 def get_genre(model, music_path):
     "Predict genre of music using a trained model"
     prediction = model.predict(extract_audio_features(music_path))
-    print(prediction,np.argmax(prediction),GenreFeatureData().genre_list, sep="\n")
-    plt.bar(GenreFeatureData().genre_list, list(map(lambda x:x*100,prediction[0])))
+    print(prediction, np.argmax(prediction), GenreFeatureData.genre_list, sep="\n")
+    plt.bar(GenreFeatureData.genre_list, list(map(lambda x:x*100,prediction[0])))
     plt.show()
-    predict_genre = GenreFeatureData().genre_list[np.argmax(prediction)]
+    predict_genre = GenreFeatureData.genre_list[np.argmax(prediction)]
     return predict_genre
 
 
