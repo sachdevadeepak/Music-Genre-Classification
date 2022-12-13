@@ -1,6 +1,7 @@
 import logging
 
 from flask import Flask, request
+import flask_cors
 from keras.models import model_from_json
 import librosa
 import numpy as np
@@ -12,6 +13,7 @@ from GenreFeatureData import GenreFeatureData
 # set logging level
 logging.getLogger("tensorflow").setLevel(logging.ERROR)
 application = Flask("api")
+flask_cors.CORS(application)
 
 
 # Load the trained LSTM model from directory for genre classification
